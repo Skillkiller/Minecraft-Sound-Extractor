@@ -1,10 +1,12 @@
-name: Java CI
+name: tagged-release
 
-on: [push]
+on:
+  push:
+    tags:
+      - "v*"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -18,4 +20,11 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: mc-sound-extractor.jar
-        path: target/mc-sound-extractor-1.0-SNAPSHOT.jar
+        path: target/mc-sound-extractor.jar
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.TOKEN }}"
+        prerelease: false
+        draft: true
+        files: |
+          target/mc-sound-extractor.jar
