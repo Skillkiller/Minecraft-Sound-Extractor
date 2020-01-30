@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
         File targetDir = getInputFromUser("Output Directoy", "output/", CheckState.NONE);
-        File indexJson = getInputFromUser("Version Index Json", System.getenv("APPDATA") + "/.minecraft/assets/indexes/1.14.json", CheckState.FILE);
+        File indexJson = getInputFromUser("Version Index Json", System.getenv("APPDATA") + "/.minecraft/assets/indexes/1.15.json", CheckState.FILE);
         File objectsDir = getInputFromUser("Objects Dir", System.getenv("APPDATA") + "/.minecraft/assets/objects/", CheckState.DIRECTORY);
         targetDir.mkdirs();
 
